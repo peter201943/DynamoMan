@@ -2,6 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// PolarDoor:
+/// * This will only deactivate collisions with certain objects
+/// * Whilst still enabling collisions with other objects
+/// * It may be helpful to think of it less like a door
+/// * And more like a screen or filter
+/// 
+/// Future:
+/// * Consider only playing a sound or changing the appearance if the PLAYER
+///   can pass through.
+/// * Consider making the door enable/disable collisions for ALL OBJECTS if any
+///   valid objects are trying to pass through
+/// * Consider using an Animator to control playing effects like
+///   * Lights
+///   * Sounds
+///   * Colliders
+///   * Etc.
+/// 
+/// <see href="https://docs.unity3d.com/ScriptReference/Animation.Play.html">Animation.Play</see>
+/// <see href="https://answers.unity.com/questions/686915/how-do-i-get-some-objects-to-ignore-collision-with.html">How do i get some objects to ignore collision with a specific object?</see>
+/// <see href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments#named-arguments">Named Arguments</see>
+/// <see href="https://answers.unity.com/questions/1383663/how-to-enable-the-collision-between-two-objects-af.html">How to enable the collision between two objects after using Physics2D.IgnoreCollision() ?</see>
+/// <see href="https://docs.unity3d.com/ScriptReference/Physics2D.GetIgnoreCollision.html">Physics2D.GetIgnoreCollision</see>
+/// </summary>
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(AudioSource))]
 public class PolarDoor : MonoBehaviour
@@ -17,16 +41,14 @@ public class PolarDoor : MonoBehaviour
 
     private void Start()
     {
-        negative = LayerMask.NameToLayer("Negative");
-        positive = LayerMask.NameToLayer("Positive");
         collider = gameObject.GetComponent<Collider2D>();
+        if (gameObject.layer != LayerMask.NameToLayer("Negative") || gameObject.layer != LayerMask.NameToLayer("Positive"))
+        {
+            Debug.LogError("Error: Door Collision Layer Not Valid");
+        }
     }
 
     /// <summary>
-    /// <see href="https://answers.unity.com/questions/686915/how-do-i-get-some-objects-to-ignore-collision-with.html">How do i get some objects to ignore collision with a specific object?</see>
-    /// <see href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments#named-arguments">Named Arguments</see>
-    /// <see href="https://answers.unity.com/questions/1383663/how-to-enable-the-collision-between-two-objects-af.html">How to enable the collision between two objects after using Physics2D.IgnoreCollision() ?</see>
-    /// <see href="https://docs.unity3d.com/ScriptReference/Physics2D.GetIgnoreCollision.html">Physics2D.GetIgnoreCollision</see>
     /// </summary>
     /// <param name="collision">Any object trying to pass through a doorway</param>
     private void OnTriggerEnter2D(Collider2D collision)
