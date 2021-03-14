@@ -33,29 +33,4 @@ public class PlayerController : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg ;
         myrb.rotation = angle;
     }
-
-    /// <summary>
-    /// <see href="https://answers.unity.com/questions/686915/how-do-i-get-some-objects-to-ignore-collision-with.html">How do i get some objects to ignore collision with a specific object?</see>
-    /// </summary>
-    /// <param name="collision"></param>
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Positive Interaction
-        if (
-            collision.gameObject.layer == positive &&
-            gameObject.layer == positive
-        )
-        {
-            // Do Something
-        }
-
-        // Negative Interaction
-        if (
-            collision.gameObject.layer == negative &&
-            gameObject.layer == negative
-        )
-        {
-            // Do Something
-        }
-    }
 }
