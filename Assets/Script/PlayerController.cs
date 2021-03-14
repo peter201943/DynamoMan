@@ -34,6 +34,10 @@ public class PlayerController : MonoBehaviour
         myrb.rotation = angle;
     }
 
+    /// <summary>
+    /// <see href="https://answers.unity.com/questions/686915/how-do-i-get-some-objects-to-ignore-collision-with.html">How do i get some objects to ignore collision with a specific object?</see>
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Positive Interaction
