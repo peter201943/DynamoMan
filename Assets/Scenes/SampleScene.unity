@@ -402,6 +402,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -644,7 +645,7 @@ GameObject:
   - component: {fileID: 732342747}
   - component: {fileID: 732342746}
   m_Layer: 0
-  m_Name: Lighting
+  m_Name: Lightning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5197,6 +5198,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5849,6 +5851,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8635,6 +8638,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8765,6 +8769,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2759550462346630160, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759550462346630160, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.053862
       objectReference: {fileID: 0}
@@ -8777,6 +8786,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759550462346630160, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2759550462346630160, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
         type: 3}
@@ -8795,16 +8809,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2759550462346630160, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2759550462346630160, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2759550462346630160, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
-        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -8820,31 +8824,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2759550462346630165, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
         type: 3}
-      propertyPath: BulletText.Array.size
-      value: 2
+      propertyPath: bulletforce
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2759550462346630165, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
         type: 3}
-      propertyPath: bulletPrefeb.Array.data[1]
-      value: 
-      objectReference: {fileID: 2468800793912465188, guid: 46cd4b0e0df839e4f90e05591214691c,
-        type: 3}
-    - target: {fileID: 2759550462346630165, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
-        type: 3}
-      propertyPath: bulletPrefeb.Array.data[0]
-      value: 
-      objectReference: {fileID: 2256528739792415503, guid: 9e941841e5b227241ab50a2600df9e9c,
-        type: 3}
-    - target: {fileID: 2759550462346630165, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
-        type: 3}
-      propertyPath: BulletUIImage.Array.data[0]
-      value: 
-      objectReference: {fileID: 2021683165}
-    - target: {fileID: 2759550462346630165, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
-        type: 3}
-      propertyPath: BulletUIImage.Array.data[1]
-      value: 
-      objectReference: {fileID: 1069314703}
+      propertyPath: BulletText.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2759550462346630165, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
         type: 3}
       propertyPath: BulletText.Array.data[0]
@@ -8857,9 +8844,26 @@ PrefabInstance:
       objectReference: {fileID: 80196461}
     - target: {fileID: 2759550462346630165, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
         type: 3}
-      propertyPath: bulletforce
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: bulletPrefeb.Array.data[0]
+      value: 
+      objectReference: {fileID: 2256528739792415503, guid: 9e941841e5b227241ab50a2600df9e9c,
+        type: 3}
+    - target: {fileID: 2759550462346630165, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
+        type: 3}
+      propertyPath: bulletPrefeb.Array.data[1]
+      value: 
+      objectReference: {fileID: 2468800793912465188, guid: 46cd4b0e0df839e4f90e05591214691c,
+        type: 3}
+    - target: {fileID: 2759550462346630165, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
+        type: 3}
+      propertyPath: BulletUIImage.Array.data[0]
+      value: 
+      objectReference: {fileID: 2021683165}
+    - target: {fileID: 2759550462346630165, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
+        type: 3}
+      propertyPath: BulletUIImage.Array.data[1]
+      value: 
+      objectReference: {fileID: 1069314703}
     - target: {fileID: 2759550462346630166, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
         type: 3}
       propertyPath: cam
@@ -8887,13 +8891,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2759550462725350644, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
         type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.7071068
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2759550462725350644, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2759550462725350644, guid: b787ef6d464e64a4bbaacb56b7bfe4c4,
         type: 3}
