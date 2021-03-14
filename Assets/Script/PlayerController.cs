@@ -4,29 +4,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
     public float speed;
-    private Rigidbody2D myrb;
     public Camera cam;
-    Vector2 movement, mouseposition;
+    private Rigidbody2D myrb;
+    private Vector2 movement;
+    private Vector2 mouseposition;
+    private int negative;
+    private int positive;
 
-    void Start()
+    private void Start()
     {
-        myrb = this.GetComponent<Rigidbody2D>();
+        myrb = GetComponent<Rigidbody2D>();
+        negative = LayerMask.NameToLayer("Negative");
+        positive = LayerMask.NameToLayer("Positive");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        // float move;
-
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
-
-
         mouseposition = cam.ScreenToWorldPoint(Input.mousePosition);
-
-
     }
 
     private void FixedUpdate()
@@ -39,19 +36,22 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Fish" && collision.gameObject.layer == LayerMask.NameToLayer("Supply"))
+        // Positive Interaction
+        if (
+            collision.gameObject.layer == positive &&
+            gameObject.layer == positive
+        )
         {
-            speed = speed * 0.5f;
+            // Do Something
         }
 
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Fish" && collision.gameObject.layer == LayerMask.NameToLayer("Supply"))
+        // Negative Interaction
+        if (
+            collision.gameObject.layer == negative &&
+            gameObject.layer == negative
+        )
         {
-            speed = speed * 2.0f;
+            // Do Something
         }
-
     }
 }
