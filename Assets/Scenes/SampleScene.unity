@@ -151,8 +151,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1800932124}
-  m_RootOrder: 0
+  m_Father: {fileID: 1323069236}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &15339898
 TilemapRenderer:
@@ -5233,7 +5233,7 @@ GameObject:
   - component: {fileID: 1130282615}
   - component: {fileID: 1130282614}
   m_Layer: 0
-  m_Name: CornerWALL
+  m_Name: CornerWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5251,7 +5251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1323069236}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!19719996 &1130282614
 TilemapCollider2D:
@@ -5655,7 +5655,7 @@ GameObject:
   - component: {fileID: 1165983162}
   - component: {fileID: 1165983161}
   m_Layer: 0
-  m_Name: Normalwall2
+  m_Name: CornerWall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5672,8 +5672,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1800932124}
-  m_RootOrder: 2
+  m_Father: {fileID: 1323069236}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1165983161
 TilemapRenderer:
@@ -5919,7 +5919,10 @@ Transform:
   m_Children:
   - {fileID: 934093626}
   - {fileID: 1800932124}
+  - {fileID: 15339897}
+  - {fileID: 1865642715}
   - {fileID: 1130282613}
+  - {fileID: 1165983160}
   m_Father: {fileID: 1674118972}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6200,10 +6203,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 15339897}
-  - {fileID: 1865642715}
-  - {fileID: 1165983160}
+  m_Children: []
   m_Father: {fileID: 1323069236}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8195,8 +8195,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1800932124}
-  m_RootOrder: 1
+  m_Father: {fileID: 1323069236}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1865642716
 TilemapRenderer:
