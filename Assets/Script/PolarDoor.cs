@@ -63,7 +63,7 @@ public class PolarDoor : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         // Ignoring Collisions
-        if ( Physics2D.GetIgnoreCollision(collider1: collider, collider2: collision )
+        if ( Physics2D.GetIgnoreCollision(collider1: collider, collider2: collision ) )
         {
             // Play Power Up Sound
             doorSound.clip = doorOn;
