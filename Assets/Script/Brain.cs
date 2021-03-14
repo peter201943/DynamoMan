@@ -13,10 +13,15 @@ public interface Brain
     /// Stops it from moving
     /// Starts whatever death means for this thing
     /// </summary>
-    public void Die();
+    void Die();
 
     /// <summary>
     /// Tell this entity to start moving around
     /// </summary>
-    public void Spawn();
+    void Spawn();
+
+    /// <summary>
+    /// Should call spawn with some extra effects
+    /// </summary>
+    void Respawn();
 }
