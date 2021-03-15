@@ -17,6 +17,8 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         supplyLayer = LayerMask.NameToLayer("Supply");
+        BulletText[1].text = RemainBullet[1].ToString();
+        BulletText[0].text = RemainBullet[0].ToString();
     }
 
     void Update()
@@ -62,8 +64,8 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Positive" && collision.gameObject.layer == supplyLayer)
         {
-            RemainBullet[2] = 10;
-            BulletText[2].text = RemainBullet[2].ToString();
+            RemainBullet[1] = 10;
+            BulletText[1].text = RemainBullet[1].ToString();
             Destroy(collision.gameObject);
             return;
         }
