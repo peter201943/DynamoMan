@@ -47,3 +47,5 @@ MonoBehaviour:
   item: {fileID: 2256528739792415503, guid: b7094c469170e794998d6fa084d504e6, type: 3}
   spawning: 1
   timeVariance: 3
+  timeIncreaseRate: 2
+  timeIncreaseSize: 1

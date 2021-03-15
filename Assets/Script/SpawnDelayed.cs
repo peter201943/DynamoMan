@@ -22,11 +22,22 @@ public class SpawnDelayed : MonoBehaviour
     [SerializeField]
     private bool spawning = true;
 
+    [Header("Difficulty Options")]
+
     [Tooltip("Degree of variation in spawn times")]
     [SerializeField]
     private int timeVariance = 3;
     private int timeVarianceMin;
     private int timeVarianceMax;
+
+    [Tooltip("How quickly the spawn rate increases over time. Refers to spawn cycles.")]
+    [SerializeField]
+    private int timeIncreaseRate = 3;
+    private int timeIncreaseRateCurrent = 0;
+
+    [Tooltip("How much the spawn rate increases over time. Use ZERO for none, POSITIVE to ADD, NEGATIVE to SUB. Prefer small values.")]
+    [SerializeField]
+    private int timeIncreaseSize = -1;
 
     /// <summary>
     /// Get the Variance
@@ -36,6 +47,8 @@ public class SpawnDelayed : MonoBehaviour
     {
         timeVarianceMin = -timeVariance / 2;
         timeVarianceMax =  timeVariance / 2;
+
+        timeIncreaseRateCurrent = 0;
 
         StartCoroutine(spawnItemContinuous(timeDelay));
     }
@@ -50,10 +63,23 @@ public class SpawnDelayed : MonoBehaviour
     {
         while (spawning)
         {
+            // Wait
             yield return new WaitForSecondsRealtime(
                 timeDelay + Random.Range(min: timeVarianceMin, max: timeVarianceMax)
             );
+
+            // Spawn
             spawnItem();
+
+            // Update Difficulty
+            if (timeIncreaseRateCurrent == timeIncreaseRate)
+            {
+                timeDelay += timeIncreaseRate;
+            }
+            if (timeDelay < 1)
+            {
+                timeDelay = 1;
+            }
         }
     }
 

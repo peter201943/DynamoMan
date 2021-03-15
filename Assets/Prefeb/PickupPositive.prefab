@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 2256528739792415501}
   - component: {fileID: 6280807724868104081}
   - component: {fileID: 4145019726727509422}
-  - component: {fileID: -273474367742439666}
   m_Layer: 10
-  m_Name: PositivePickup
+  m_Name: PickupPositive
   m_TagString: Positive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,18 +132,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-273474367742439666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2256528739792415503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7932069aaab7b84c8de25a0dd4e2b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7865643102734706066
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +201,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 7dfa8a97e5c8f8849ba2565511ec17fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -295,7 +282,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 7dfa8a97e5c8f8849ba2565511ec17fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
