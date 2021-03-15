@@ -4,33 +4,22 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == this.gameObject.tag)
         {   
-            // Destroy Ourselves
-            Destroy(this.gameObject);
-
-            // Notify the target (if it is an animal)
-          /*  try
+            // Notify the target (if it is of our charge)
+            try
             {
-               // collision.gameObject.GetComponent<Animal>().Defeat();
+                // collision.gameObject.GetComponent<Power>().Current -= damage;
             }
             catch
             {
-            }*/
+            }
+
+            // Destroy Ourselves
+            Destroy(this.gameObject);
         }
 
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != this.gameObject.tag)

@@ -30,13 +30,10 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class PolarDoor : MonoBehaviour
 {
-    public AudioSource  doorSound;
-    public AudioClip    doorOn;
-    public AudioClip    doorOff;
-    public AudioClip    doorFail;
-
-    private int         negative;
-    private int         positive;
+    public  AudioSource doorSound;
+    public  AudioClip   doorOn;
+    public  AudioClip   doorOff;
+    public  AudioClip   doorFail;
     private Collider2D  collider;
 
     private void Start()
