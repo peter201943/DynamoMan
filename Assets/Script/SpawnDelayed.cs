@@ -34,6 +34,8 @@ public class SpawnDelayed : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        Debug.Log("Starting!");
+
         timeVarianceMin = -timeVariance / 2;
         timeVarianceMax =  timeVariance / 2;
 
@@ -48,6 +50,8 @@ public class SpawnDelayed : MonoBehaviour
     /// <returns></returns>
     private IEnumerator spawnItemContinuous(int timeDelay)
     {
+        Debug.Log("Waiting!");
+
         while (spawning)
         {
             yield return new WaitForSecondsRealtime(
@@ -63,6 +67,8 @@ public class SpawnDelayed : MonoBehaviour
     /// </summary>
     private void spawnItem()
     {
+        Debug.Log("Spawning!");
+
         if (transform.childCount == 0)
         {
             Instantiate(item, transform);
