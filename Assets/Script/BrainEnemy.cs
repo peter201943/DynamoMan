@@ -7,7 +7,7 @@ using UnityEngine;
 /// * Does NOT handle movement
 /// * Does NOT handle attacking
 /// </summary>
-public class BrainEnemy : Brain
+public class BrainEnemy : MonoBehaviour, Brain
 {
     [Tooltip("What the enemy moves with")]
     [SerializeField]
