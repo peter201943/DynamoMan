@@ -31,35 +31,41 @@ public class Power : MonoBehaviour
     [SerializeField]
     private Brain brain;
 
-    /// <summary>
-    /// Get the current power level
-    /// </summary>
-    public int Current()
+    private void Start()
     {
-        return current;
+        if (start > max)
+        {
+            Debug.LogError("Cannot start with greater than max health");
+        }
+        if (max < 1)
+        {
+            Debug.LogError("Max must be greater than zero");
+        }
+        if (start < 1)
+        {
+            Debug.LogError("Cannot start with zero health");
+        }
+        current = start;
     }
 
     /// <summary>
-    /// Take power away from this entity
-    /// OR
-    /// Give this entity power
+    /// Get the current power level
     /// </summary>
-    /// <param name="amount">amount of energy to take away</param>
-    /// <returns>Energy taken from entity</returns>
-    public int Change(int amount)
+    public int Current
     {
-        // Play Sound Effect
-        // TODO
-
-        // Deduct Power
-        int remaining = current + amount;
-        if (remaining <= 0)
+        get { return current; }
+        set
         {
-            remaining = 0;
-            brain.Die();
+            current += value;
+            if (current <= 0)
+            {
+                brain.Die();
+                current = 0;
+            }
+            if (current > max)
+            {
+                current = max;
+            }
         }
-
-        // Return Remaining
-        return remaining;
     }
 }
