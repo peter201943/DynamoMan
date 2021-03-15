@@ -12,11 +12,11 @@ public class SpawnDelayed : MonoBehaviour
 {
     [Tooltip("Time until an item spawns again")]
     [SerializeField]
-    protected int timeDelay = 10;
+    private int timeDelay = 10;
 
     [Tooltip("Item we spawn")]
     [SerializeField]
-    public GameObject item;
+    private GameObject item;
 
     [Tooltip("Are we actively spawning items?")]
     [SerializeField]
