@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [Tooltip("Damage done by a single bullet")]
+    [SerializeField]
+    private int damage = 20;
+
     /// <summary>
     /// Ensure we do not leave any spare bullets around by accident
     /// </summary>
