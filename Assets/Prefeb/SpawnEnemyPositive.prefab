@@ -46,6 +46,7 @@ MonoBehaviour:
   timeDelay: 10
   item: {fileID: 2759550462346630170, guid: d1712cae187fd52448d32cd27886f12d, type: 3}
   spawning: 1
+  wait: 0
   timeVariance: 3
   timeIncreaseRate: 1
   timeIncreaseSize: -1

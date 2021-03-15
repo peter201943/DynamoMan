@@ -10,6 +10,8 @@ using UnityEngine;
 /// </summary>
 public class SpawnDelayed : MonoBehaviour
 {
+    [Header("Spawn Settings")]
+
     [Tooltip("Time until an item spawns again")]
     [SerializeField]
     private int timeDelay = 10;
@@ -21,6 +23,10 @@ public class SpawnDelayed : MonoBehaviour
     [Tooltip("Are we actively spawning items?")]
     [SerializeField]
     private bool spawning = true;
+
+    [Tooltip("Do we wait for spawned items to disappear?")]
+    [SerializeField]
+    private bool wait = true;
 
     [Header("Difficulty Options")]
 
