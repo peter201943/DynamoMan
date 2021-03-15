@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 670870327}
   - component: {fileID: 670870328}
   m_Layer: 0
-  m_Name: NegativeEnemy (1)
+  m_Name: NegativeEnemySpawn (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -741,7 +741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDelay: 10
-  item: {fileID: 0}
+  item: {fileID: 2759550462346630170, guid: 94c3fba48b3cd4d418f8f74f98b3f3fb, type: 3}
   spawning: 1
   timeVariance: 3
 --- !u!1 &732342745
@@ -6080,7 +6080,7 @@ GameObject:
   - component: {fileID: 1542531076}
   - component: {fileID: 1542531077}
   m_Layer: 0
-  m_Name: NegativeCells (1)
+  m_Name: NegativeCellSpawn (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6113,7 +6113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDelay: 10
-  item: {fileID: 0}
+  item: {fileID: 2468800793912465188, guid: 79589ecf038802a4fbdf4fa39188e882, type: 3}
   spawning: 1
   timeVariance: 3
 --- !u!1 &1593803357
@@ -6375,7 +6375,7 @@ GameObject:
   - component: {fileID: 1785440162}
   - component: {fileID: 1785440163}
   m_Layer: 0
-  m_Name: PositiveCells (1)
+  m_Name: PositiveCellSpawn (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6408,7 +6408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDelay: 10
-  item: {fileID: 0}
+  item: {fileID: 2256528739792415503, guid: b7094c469170e794998d6fa084d504e6, type: 3}
   spawning: 1
   timeVariance: 3
 --- !u!1 &1800932123
@@ -8767,7 +8767,7 @@ GameObject:
   - component: {fileID: 1867649153}
   - component: {fileID: 1867649154}
   m_Layer: 0
-  m_Name: PositiveEnemy (1)
+  m_Name: PositiveEnemySpawn (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8800,7 +8800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDelay: 10
-  item: {fileID: 0}
+  item: {fileID: 2759550462346630170, guid: d1712cae187fd52448d32cd27886f12d, type: 3}
   spawning: 1
   timeVariance: 3
 --- !u!1 &1960690674

@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
+/// Allows objects to be negative or positive
+/// </summary>
+public enum Charge
+{
+    Positive,
+    Negative
+}
+
+/// <summary>
 /// Power:
 /// * A class, similar to Health in other videogames
 /// * Damage
@@ -36,6 +45,12 @@ public class Power : MonoBehaviour
     [Tooltip("Power needs some brain to tell to die")]
     [SerializeField,SerializeReference]
     private Brain brain;
+
+    [Header("Charge Settings")]
+
+    [Tooltip("Current Charge")]
+    [SerializeField]
+    private Charge chargeCurrent;
 
     private void Start()
     {
