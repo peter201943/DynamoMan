@@ -15,7 +15,7 @@ public class SpawnDelayed : MonoBehaviour
 
     [Tooltip("Item we spawn")]
     [SerializeField]
-    public GameObject item = new GameObject();
+    public GameObject item;
 
     [Tooltip("Are we actively spawning items?")]
     [SerializeField]
