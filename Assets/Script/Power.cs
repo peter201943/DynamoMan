@@ -9,6 +9,10 @@ using UnityEngine;
 /// * Heal
 /// * Current
 /// * Max
+/// <see href="https://www.reddit.com/r/Unity3D/comments/59na4t/psa_you_can_use/">PSA: You can use [RequireComponent(typeof(IMyInterface))] as long as your interface is in a script which is NOT named the same as the interface</see>
+/// <see href="https://www.gamasutra.com/blogs/VictorBarcelo/20131217/207204/Using_abstractions_and_interfaces_with_Unity3D.php">Using abstractions and interfaces with Unity3Dhttps://www.gamasutra.com/blogs/VictorBarcelo/20131217/207204/Using_abstractions_and_interfaces_with_Unity3D.php</see>
+/// <see href="http://hightalestudios.com/2017/03/friends-dont-let-friends-use-interfaces-on-monobehaviour-objects/">Friends Don’t Let Friends Use Interfaces on MonoBehaviour Objects</see>
+/// <see href="https://answers.unity.com/questions/46210/how-to-expose-a-field-of-type-interface-in-the-ins.html">How to expose a field of type Interface in the inspector?</see>
 /// </summary>
 [RequireComponent(typeof(Brain))]
 public class Power : MonoBehaviour
@@ -27,8 +31,10 @@ public class Power : MonoBehaviour
     [SerializeField]
     private int current = 50;
 
+    [Header("Notification Settings")]
+
     [Tooltip("Power needs some brain to tell to die")]
-    [SerializeField]
+    [SerializeField,SerializeReference]
     private Brain brain;
 
     private void Start()
