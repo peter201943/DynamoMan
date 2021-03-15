@@ -742,7 +742,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDelay: 10
   item: {fileID: 0}
-  spawning: 0
+  spawning: 1
+  timeVariance: 5
 --- !u!1 &732342745
 GameObject:
   m_ObjectHideFlags: 0
@@ -6113,7 +6114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDelay: 10
   item: {fileID: 0}
-  spawning: 0
+  spawning: 1
+  timeVariance: 5
 --- !u!1 &1593803357
 GameObject:
   m_ObjectHideFlags: 0
@@ -6407,7 +6409,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDelay: 10
   item: {fileID: 0}
-  spawning: 0
+  spawning: 1
+  timeVariance: 5
 --- !u!1 &1800932123
 GameObject:
   m_ObjectHideFlags: 0
@@ -8798,7 +8801,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDelay: 10
   item: {fileID: 0}
-  spawning: 0
+  spawning: 1
+  timeVariance: 5
 --- !u!1 &1960690674
 GameObject:
   m_ObjectHideFlags: 0
