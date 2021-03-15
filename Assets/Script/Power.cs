@@ -39,6 +39,11 @@ public class Power : MonoBehaviour
 
     private void Start()
     {
+        // Get the brain via script because the Inspector is too stupid to handle an Interface
+        // WARN possible deprecation in FUTURE
+        brain = GetComponent<Brain>();
+
+        // Check for common problems because of lack of type safety
         if (start > max)
         {
             Debug.LogError("Cannot start with greater than max health");
@@ -51,6 +56,8 @@ public class Power : MonoBehaviour
         {
             Debug.LogError("Cannot start with zero health");
         }
+
+        // set our current level
         current = start;
     }
 
