@@ -15,13 +15,13 @@ public class BrainPlayer : Brain
 
     [Tooltip("What the player shoots with")]
     [SerializeField]
-    private Shoot ps;
+    private PlayerAttack pa;
 
     public void Spawn()
     {
         // Re-Actvate the Components
         pc.enabled = true;
-        ps.enabled = true;
+        pa.enabled = true;
 
         // Play any effects
         // TODO
@@ -34,7 +34,7 @@ public class BrainPlayer : Brain
     {
         // Disable the Components
         pc.enabled = false;
-        ps.enabled = false;
+        pa.enabled = false;
 
         // Play any effects
         // TODO
