@@ -2,32 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Brain for Player
+/// * Does NOT handle movement
+/// * Does NOT handle attacking
+/// </summary>
 public class BrainPlayer : Brain
 {
-    private bool alive;
+    [Tooltip("What the player moves with")]
+    [SerializeField]
+    private PlayerController pc;
 
-    private void Start()
-    {
-        alive = true;
-    }
-
-    private void Update()
-    {
-
-    }
+    [Tooltip("What the player shoots with")]
+    [SerializeField]
+    private Shoot ps;
 
     public void Spawn()
     {
-        alive = true;
+        // Re-Actvate the Components
+        pc.enabled = true;
+        ps.enabled = true;
+
+        // Play any effects
+        // TODO
+
+        // Notify any systems
+        // TODO
     }
 
     public void Die()
     {
-        alive = false;
+        // Disable the Components
+        pc.enabled = false;
+        ps.enabled = false;
+
+        // Play any effects
+        // TODO
+
+        // Notify any systems
+        // TODO
     }
 
     public void Respawn()
     {
+        // Same as spawn
         Spawn();
+
+        // Any special effects
+        // (None)
     }
 }
