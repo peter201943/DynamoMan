@@ -40,9 +40,13 @@ public class PlayerAttack : MonoBehaviour
             BulletText[BulletType].color = new Color32(255, 255, 255, 255);
             BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            BulletType = 1-BulletType;
+        }
        
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && RemainBullet[BulletType] > 0)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && RemainBullet[BulletType] > 1)
         {
             RemainBullet[BulletType] = RemainBullet[BulletType] - 1;
             BulletText[BulletType].text = RemainBullet[BulletType].ToString();

@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 3367398342106008233}
   - component: {fileID: 4141035461023671570}
   m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Untagged
+  m_Name: EnemyPositive
+  m_TagString: Positive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,6 +190,7 @@ MonoBehaviour:
   current: 10
   brain:
     id: 0
+  chargeCurrent: 0
   references:
     version: 1
     00000000:

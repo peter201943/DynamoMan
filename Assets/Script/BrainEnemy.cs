@@ -46,7 +46,7 @@ public class BrainEnemy : MonoBehaviour, Brain
         // TODO
 
         // Delete Self
-        // TODO
+        Destroy(gameObject);
     }
 
     public void Respawn()
