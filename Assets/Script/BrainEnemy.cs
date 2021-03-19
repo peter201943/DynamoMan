@@ -28,9 +28,6 @@ public class BrainEnemy : MonoBehaviour, Brain
 
         // Notify any systems
         // TODO
-
-        // Delete Self
-        // TODO
     }
 
     public void Die()
