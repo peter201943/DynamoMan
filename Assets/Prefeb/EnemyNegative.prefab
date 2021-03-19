@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3367398342106008233}
   - component: {fileID: 4141035461023671570}
   - component: {fileID: 814397022471564075}
+  - component: {fileID: 2250059529657510511}
   m_Layer: 9
   m_Name: EnemyNegative
   m_TagString: Negative
@@ -147,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a894b69ce1f9847ad2308d8fe632cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!114 &-2510191820612213920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +163,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownMax: 1
   cooldownCurrent: 0
+  cooldownStart: 0
   attackDamage: 10
+  attackSounds: {fileID: 814397022471564075}
+  attackSound: {fileID: 8300000, guid: a8e421ac1188f884aa23635bd18f982b, type: 3}
 --- !u!114 &3367398342106008233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +182,7 @@ MonoBehaviour:
   max: 20
   start: 20
   current: 10
-  chargeCurrent: 1
+  charge: 1
 --- !u!114 &4141035461023671570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,3 +297,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &2250059529657510511
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2759550462346630170}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.35, y: 0.43}
+    newSize: {x: 0.49, y: 0.43}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0

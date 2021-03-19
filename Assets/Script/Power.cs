@@ -74,9 +74,6 @@ public class Power : MonoBehaviour
 
         // set our current level
         current = start;
-
-        // Set Current Charge
-        charge = Charge.Positive;
     }
 
     /// <summary>
