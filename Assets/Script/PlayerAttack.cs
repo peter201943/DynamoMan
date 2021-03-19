@@ -46,44 +46,100 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-       
+        CheckNumberKeySwap();
+        CheckSpacebarSwap();
+        CheckMouseClickFire();
+    }
+
+    private void CheckNumberKeySwap()
+    {
+        // Swap to Negative
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255,255,255,100);
+            // Bullet
+            BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 100);
             BulletText[BulletType].color = new Color32(255, 255, 255, 100);
             BulletType = 0;
             BulletText[BulletType].color = new Color32(255, 255, 255, 255);
             BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+
+            // Logic
+            charge = Charge.Negative;
+            gameObject.layer = negativeLayer;
+
+            // Effects
+            playerSound.clip = negativeSwap;
+            playerSound.Play();
         }
+
+        // Swap to Positive
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            // Bullet
             BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 100);
             BulletText[BulletType].color = new Color32(255, 255, 255, 100);
             BulletType = 1;
             BulletText[BulletType].color = new Color32(255, 255, 255, 255);
             BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+
+            // Logic
+            charge = Charge.Positive;
+            gameObject.layer = positiveLayer;
+
+            // Effects
+            playerSound.clip = positiveSwap;
+            playerSound.Play();
         }
+    }
+
+
+    private void CheckSpacebarSwap()
+    {
+        // Spacebar Swapping
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Swap Bullet
-            BulletType = 1-BulletType;
-            
-            // Swap Charge and Layer and Emit Sound
+            // Swap to Negative
             if (charge == Charge.Positive)
             {
+                // Bullet
+                BulletType = 1;
+
+                // Logic
                 charge = Charge.Negative;
                 gameObject.layer = negativeLayer;
+
+                // Effects
                 playerSound.clip = negativeSwap;
                 playerSound.Play();
+
+                // Stop Evaluating
+                return;
             }
-            else if (charge == Charge.Negative)
+
+            // Swap to Positive
+            if (charge == Charge.Negative)
             {
+                // Bullet
+                BulletType = 0;
+
+                // Logic
                 charge = Charge.Positive;
                 gameObject.layer = positiveLayer;
+
+                // Effects
                 playerSound.clip = positiveSwap;
                 playerSound.Play();
+
+                // Stop Evaluating
+                return;
             }
         }
+    }
+
+
+    private void CheckMouseClickFire()
+    {
+        // Mouse Click Firing
         if (Input.GetKeyDown(KeyCode.Mouse0) && RemainBullet[BulletType] > 1)
         {
             RemainBullet[BulletType] = RemainBullet[BulletType] - 1;
@@ -92,9 +148,8 @@ public class PlayerAttack : MonoBehaviour
             playerSound.clip = gunFire;
             playerSound.Play();
         }
-
-
     }
+
 
     private void Attack()
     {
