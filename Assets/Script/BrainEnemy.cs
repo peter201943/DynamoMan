@@ -17,6 +17,22 @@ public class BrainEnemy : MonoBehaviour, Brain
     [SerializeField]
     private EnemyAttack ea;
 
+    [Tooltip("How long to despawn")]
+    [SerializeField]
+    private float deathTime;
+
+    [Tooltip("Where sounds play from")]
+    [SerializeField]
+    private AudioSource enemySound;
+
+    [Tooltip("Played on Spawn")]
+    [SerializeField]
+    private AudioClip   spawnSound;
+
+    [Tooltip("Played on Death")]
+    [SerializeField]
+    private AudioClip   deathSound;
+
     public void Spawn()
     {
         // Re-Actvate the Components
@@ -24,7 +40,8 @@ public class BrainEnemy : MonoBehaviour, Brain
         ea.enabled = true;
 
         // Play any effects
-        // TODO
+        enemySound.clip = spawnSound;
+        enemySound.Play();
 
         // Notify any systems
         // TODO
@@ -37,10 +54,20 @@ public class BrainEnemy : MonoBehaviour, Brain
         ea.enabled = false;
 
         // Play any effects
-        // TODO
+        enemySound.clip = deathSound;
+        enemySound.Play();
 
         // Notify any systems
         // TODO
+
+        // Start Death
+        StartCoroutine(DeathSequence());
+    }
+
+    private IEnumerator DeathSequence()
+    {
+        // Wait
+        yield return new WaitForSecondsRealtime(deathTime);
 
         // Delete Self
         Destroy(gameObject);
