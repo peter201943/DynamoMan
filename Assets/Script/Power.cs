@@ -43,7 +43,8 @@ public class Power : MonoBehaviour
     [Header("Notification Settings")]
 
     [Tooltip("Power needs some brain to tell to die")]
-    [SerializeField,SerializeReference]
+    [SerializeField]
+    // SerializeReference]
     private Brain brain;
 
     [Header("Charge Settings")]

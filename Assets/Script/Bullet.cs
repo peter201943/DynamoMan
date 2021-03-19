@@ -16,15 +16,16 @@ public class Bullet : MonoBehaviour
         Destroy(obj: gameObject, t: 2f);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+
         // Collides with a like-charged object
-        if (collision.gameObject.tag == this.gameObject.tag)
-        {   
+        if (collision.gameObject.tag == gameObject.tag)
+        {
             // Notify the target (if it is of our charge)
             try
             {
-                collision.gameObject.GetComponent<Power>().Current -= damage;
+                collision.gameObject.GetComponent<Power>().Current = -damage;
             }
             catch
             {
@@ -35,7 +36,7 @@ public class Bullet : MonoBehaviour
         }
 
         // Colides with a Wall
-        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != this.gameObject.tag)
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != gameObject.tag)
         {
             Destroy(this.gameObject);
         }
