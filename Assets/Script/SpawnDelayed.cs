@@ -95,9 +95,21 @@ public class SpawnDelayed : MonoBehaviour
     /// </summary>
     private void spawnItem()
     {
-        if (transform.childCount == 0)
+        // Wait to spawn next item if we wait
+        if (wait)
+        {
+            if (transform.childCount == 0)
+            {
+                Instantiate(item, transform);
+            }
+            return;
+        }
+
+        // Spawn next item immediately if we do not wait
+        if (!wait)
         {
             Instantiate(item, transform);
+            return;
         }
     }
 }
