@@ -76,10 +76,12 @@ public class EnemyAttack : MonoBehaviour
             if (power.charge == Charge.Positive)
             {
                 playerAttack.RemainBullet[1] -= attackDamage;
+                playerAttack.BulletText[1].text = playerAttack.RemainBullet[1].ToString();
             }
             else if (power.charge == Charge.Negative)
             {
                 playerAttack.RemainBullet[0] -= attackDamage;
+                playerAttack.BulletText[0].text = playerAttack.RemainBullet[0].ToString();
             }
 
             // Cooldown
