@@ -60,9 +60,6 @@ public class PolarDoor : MonoBehaviour
     /// <param name="collision">Any object trying to pass through a doorway</param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // TEMP DEBUG
-        Debug.Log("Door:\nThem: " + collision.gameObject.layer + "\n" + "Us: " + gameObject.layer);
-
         // Charged Interaction is Correct and we are NOT ignoring them
         if (
             !Physics2D.GetIgnoreCollision(collider1: collider, collider2: collision)
