@@ -61,26 +61,11 @@ public class PlayerAttack : MonoBehaviour
 
     private void CheckNumberKeySwap()
     {
-        // Swap to Negative
+        // Swap to Positive
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             // Bullet
             BulletType = 0;
-
-            // Logic
-            power.charge = Charge.Negative;
-            gameObject.layer = negativeLayer;
-
-            // Effects
-            playerSound.clip = negativeSwap;
-            playerSound.Play();
-        }
-
-        // Swap to Positive
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            // Bullet
-            BulletType = 1;
 
             // Logic
             power.charge = Charge.Positive;
@@ -90,11 +75,44 @@ public class PlayerAttack : MonoBehaviour
             playerSound.clip = positiveSwap;
             playerSound.Play();
         }
+
+        // Swap to Negative
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            // Bullet
+            BulletType = 1;
+
+            // Logic
+            power.charge = Charge.Negative;
+            gameObject.layer = negativeLayer;
+
+            // Effects
+            playerSound.clip = negativeSwap;
+            playerSound.Play();
+        }
     }
 
 
     private void CheckSpacebarSwap()
     {
+        // Swap to Positive
+        if (power.charge == Charge.Negative)
+        {
+            // Bullet
+            BulletType = 0;
+
+            // Logic
+            power.charge = Charge.Positive;
+            gameObject.layer = positiveLayer;
+
+            // Effects
+            playerSound.clip = positiveSwap;
+            playerSound.Play();
+
+            // Stop Evaluating
+            return;
+        }
+
         // Spacebar Swapping
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -102,7 +120,7 @@ public class PlayerAttack : MonoBehaviour
             if (power.charge == Charge.Positive)
             {
                 // Bullet
-                BulletType = 0;
+                BulletType = 1;
 
                 // Logic
                 power.charge = Charge.Negative;
@@ -110,24 +128,6 @@ public class PlayerAttack : MonoBehaviour
 
                 // Effects
                 playerSound.clip = negativeSwap;
-                playerSound.Play();
-
-                // Stop Evaluating
-                return;
-            }
-
-            // Swap to Positive
-            if (power.charge == Charge.Negative)
-            {
-                // Bullet
-                BulletType = 1;
-
-                // Logic
-                power.charge = Charge.Positive;
-                gameObject.layer = positiveLayer;
-
-                // Effects
-                playerSound.clip = positiveSwap;
                 playerSound.Play();
 
                 // Stop Evaluating
