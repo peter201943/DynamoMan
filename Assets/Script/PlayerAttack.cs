@@ -57,11 +57,11 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             // Bullet
-            BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 100);
-            BulletText[BulletType].color = new Color32(255, 255, 255, 100);
             BulletType = 0;
-            BulletText[BulletType].color = new Color32(255, 255, 255, 255);
-            BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            // BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+            // BulletText[BulletType].color = new Color32(255, 255, 255, 100);
+            // BulletText[BulletType].color = new Color32(255, 255, 255, 255);
+            // BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
 
             // Logic
             charge = Charge.Negative;
@@ -76,11 +76,11 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             // Bullet
-            BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 100);
-            BulletText[BulletType].color = new Color32(255, 255, 255, 100);
             BulletType = 1;
-            BulletText[BulletType].color = new Color32(255, 255, 255, 255);
-            BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            // BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+            // BulletText[BulletType].color = new Color32(255, 255, 255, 100);
+            // BulletText[BulletType].color = new Color32(255, 255, 255, 255);
+            // BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
 
             // Logic
             charge = Charge.Positive;
