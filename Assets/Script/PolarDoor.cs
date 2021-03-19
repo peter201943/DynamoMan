@@ -30,15 +30,35 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class PolarDoor : MonoBehaviour
 {
-    public  AudioSource doorSound;
-    public  AudioClip   doorOn;
-    public  AudioClip   doorOff;
-    public  AudioClip   doorFail;
+    [Tooltip("Plays sound effects for the door")]
+    [SerializeField]
+    private AudioSource doorSound;
+
+    [Tooltip("Object may pass through")]
+    [SerializeField]
+    private AudioClip   doorOn;
+
+    [Tooltip("Object has finished passing through")]
+    [SerializeField]
+    private AudioClip   doorOff;
+
+    [Tooltip("Object is not allowed through")]
+    [SerializeField]
+    private AudioClip   doorFail;
+
+    [Tooltip("What we collide with -- IGNORE ERRORS")]
+    [SerializeField]
     private Collider2D  collider;
 
     private void Start()
     {
-        collider = gameObject.GetComponent<Collider2D>();
+        // Check that we have a collider and find one if not
+        if (!collider)
+        {
+            collider = gameObject.GetComponent<Collider2D>();
+        }
+
+        // Check that we have an appropriate layer assigned
         if (
             gameObject.layer != LayerMask.NameToLayer("Negative")
             && gameObject.layer != LayerMask.NameToLayer("Positive")
