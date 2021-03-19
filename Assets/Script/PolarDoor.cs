@@ -41,7 +41,7 @@ public class PolarDoor : MonoBehaviour
         collider = gameObject.GetComponent<Collider2D>();
         if (gameObject.layer != LayerMask.NameToLayer("Negative") || gameObject.layer != LayerMask.NameToLayer("Positive"))
         {
-            Debug.LogError("Error: Door Collision Layer Not Valid");
+            Debug.LogError("Error: Door Collision Layer Not Valid\nExpected " + LayerMask.NameToLayer("Positive") + " or " + LayerMask.NameToLayer("Negative") + " but got " + gameObject.layer);
         }
     }
 
