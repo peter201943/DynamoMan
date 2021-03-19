@@ -39,9 +39,19 @@ public class PolarDoor : MonoBehaviour
     private void Start()
     {
         collider = gameObject.GetComponent<Collider2D>();
-        if (gameObject.layer != LayerMask.NameToLayer("Negative") && gameObject.layer != LayerMask.NameToLayer("Positive"))
+        if (
+            gameObject.layer != LayerMask.NameToLayer("Negative")
+            && gameObject.layer != LayerMask.NameToLayer("Positive")
+        )
         {
-            Debug.LogError("Error: Door Collision Layer Not Valid\nExpected " + LayerMask.NameToLayer("Positive") + " or " + LayerMask.NameToLayer("Negative") + " but got " + gameObject.layer);
+            Debug.LogError(
+                "Error: Door Collision Layer Not Valid\nExpected "
+                + LayerMask.NameToLayer("Positive")
+                + " or "
+                + LayerMask.NameToLayer("Negative")
+                + " but got "
+                + gameObject.layer
+            );
         }
     }
 
@@ -53,8 +63,11 @@ public class PolarDoor : MonoBehaviour
         // TEMP DEBUG
         Debug.Log("Door:\nThem: " + collision.gameObject.layer + "\n" + "Us: " + gameObject.layer);
 
-        // Charged Interaction
-        if ( collision.gameObject.layer == gameObject.layer )
+        // Charged Interaction is Correct and we are NOT ignoring them
+        if (
+            !Physics2D.GetIgnoreCollision(collider1: collider, collider2: collision)
+            && collision.gameObject.layer == gameObject.layer
+        )
         {
             // Play Power Down Sound
             doorSound.clip = doorOff;
