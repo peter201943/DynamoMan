@@ -58,10 +58,6 @@ public class PlayerAttack : MonoBehaviour
         {
             // Bullet
             BulletType = 0;
-            // BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 100);
-            // BulletText[BulletType].color = new Color32(255, 255, 255, 100);
-            // BulletText[BulletType].color = new Color32(255, 255, 255, 255);
-            // BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
 
             // Logic
             charge = Charge.Negative;
@@ -77,10 +73,6 @@ public class PlayerAttack : MonoBehaviour
         {
             // Bullet
             BulletType = 1;
-            // BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 100);
-            // BulletText[BulletType].color = new Color32(255, 255, 255, 100);
-            // BulletText[BulletType].color = new Color32(255, 255, 255, 255);
-            // BulletUIImage[BulletType].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
 
             // Logic
             charge = Charge.Positive;
