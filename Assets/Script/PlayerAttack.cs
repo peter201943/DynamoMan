@@ -95,27 +95,27 @@ public class PlayerAttack : MonoBehaviour
 
     private void CheckSpacebarSwap()
     {
-        // Swap to Positive
-        if (power.charge == Charge.Negative)
-        {
-            // Bullet
-            BulletType = 0;
-
-            // Logic
-            power.charge = Charge.Positive;
-            gameObject.layer = positiveLayer;
-
-            // Effects
-            playerSound.clip = positiveSwap;
-            playerSound.Play();
-
-            // Stop Evaluating
-            return;
-        }
-
         // Spacebar Swapping
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // Swap to Positive
+            if (power.charge == Charge.Negative)
+            {
+                // Bullet
+                BulletType = 0;
+
+                // Logic
+                power.charge = Charge.Positive;
+                gameObject.layer = positiveLayer;
+
+                // Effects
+                playerSound.clip = positiveSwap;
+                playerSound.Play();
+
+                // Stop Evaluating
+                return;
+            }
+
             // Swap to Negative
             if (power.charge == Charge.Positive)
             {
