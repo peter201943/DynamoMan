@@ -102,7 +102,7 @@ public class PlayerAttack : MonoBehaviour
             if (charge == Charge.Positive)
             {
                 // Bullet
-                BulletType = 1;
+                BulletType = 0;
 
                 // Logic
                 charge = Charge.Negative;
@@ -120,7 +120,7 @@ public class PlayerAttack : MonoBehaviour
             if (charge == Charge.Negative)
             {
                 // Bullet
-                BulletType = 0;
+                BulletType = 1;
 
                 // Logic
                 charge = Charge.Positive;
