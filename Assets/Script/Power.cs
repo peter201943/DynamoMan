@@ -50,7 +50,7 @@ public class Power : MonoBehaviour
 
     [Tooltip("Current Charge")]
     [SerializeField]
-    private Charge chargeCurrent;
+    public  Charge charge;
 
     private void Start()
     {
@@ -74,6 +74,9 @@ public class Power : MonoBehaviour
 
         // set our current level
         current = start;
+
+        // Set Current Charge
+        charge = Charge.Positive;
     }
 
     /// <summary>

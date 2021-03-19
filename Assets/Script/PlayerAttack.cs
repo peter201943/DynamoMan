@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
+/// <summary>
+/// Handles almost everything for the player
+/// Really needs to be split up into multiple separate classes
+/// </summary>
+[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Power))]
 public class PlayerAttack : MonoBehaviour
 {
     [Header("Gun Logic")]
@@ -27,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
     private int             supplyLayer;
     private int             negativeLayer;
     private int             positiveLayer;
-    private Charge          charge;
+    private Power           power;
 
     void Start()
     {
@@ -41,7 +48,8 @@ public class PlayerAttack : MonoBehaviour
         BulletText[0].text = RemainBullet[0].ToString();
 
         // Set Starting Charge
-        charge = Charge.Positive;
+        power = GetComponent<Power>();
+        power.charge = Charge.Positive;
     }
 
     void Update()
@@ -60,7 +68,7 @@ public class PlayerAttack : MonoBehaviour
             BulletType = 0;
 
             // Logic
-            charge = Charge.Negative;
+            power.charge = Charge.Negative;
             gameObject.layer = negativeLayer;
 
             // Effects
@@ -75,7 +83,7 @@ public class PlayerAttack : MonoBehaviour
             BulletType = 1;
 
             // Logic
-            charge = Charge.Positive;
+            power.charge = Charge.Positive;
             gameObject.layer = positiveLayer;
 
             // Effects
@@ -91,13 +99,13 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Swap to Negative
-            if (charge == Charge.Positive)
+            if (power.charge == Charge.Positive)
             {
                 // Bullet
                 BulletType = 0;
 
                 // Logic
-                charge = Charge.Negative;
+                power.charge = Charge.Negative;
                 gameObject.layer = negativeLayer;
 
                 // Effects
@@ -109,13 +117,13 @@ public class PlayerAttack : MonoBehaviour
             }
 
             // Swap to Positive
-            if (charge == Charge.Negative)
+            if (power.charge == Charge.Negative)
             {
                 // Bullet
                 BulletType = 1;
 
                 // Logic
-                charge = Charge.Positive;
+                power.charge = Charge.Positive;
                 gameObject.layer = positiveLayer;
 
                 // Effects
@@ -128,27 +136,19 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-
     private void CheckMouseClickFire()
     {
         // Mouse Click Firing
         if (Input.GetKeyDown(KeyCode.Mouse0) && RemainBullet[BulletType] > 1)
         {
-            RemainBullet[BulletType] = RemainBullet[BulletType] - 1;
+            RemainBullet[BulletType] -= 1;
             BulletText[BulletType].text = RemainBullet[BulletType].ToString();
-            Attack();
+            GameObject bullet = Instantiate(bulletPrefeb[BulletType], firepoint.position, firepoint.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(firepoint.up * bulletforce, ForceMode2D.Impulse);
             playerSound.clip = gunFire;
             playerSound.Play();
         }
-    }
-
-
-    private void Attack()
-    {
-        GameObject bullet = Instantiate(bulletPrefeb[BulletType], firepoint.position, firepoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firepoint.up * bulletforce, ForceMode2D.Impulse);
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

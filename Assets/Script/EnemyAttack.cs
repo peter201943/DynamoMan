@@ -6,25 +6,27 @@ using UnityEngine;
 /// Attack the player when in range and not on cooldown
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Power))]
 public class EnemyAttack : MonoBehaviour
 {
     [Header("Difficulty")]
 
     [Tooltip("Cooldown between each attack")]
     [SerializeField]
-    private float   cooldownMax;
+    private float       cooldownMax;
 
     [Tooltip("Current cooldown of player -- DO NOT SET")]
     [SerializeField]
-    private float   cooldownCurrent;
+    private float       cooldownCurrent;
 
     [Tooltip("How much cooldown do enemies start with?")]
     [SerializeField]
-    private float cooldownStart;
+    private float       cooldownStart;
 
     [Tooltip("How much damage to attack the player with")]
     [SerializeField]
-    public  int     attackDamage;
+    public  int         attackDamage;
 
     [Header("Sounds")]
 
@@ -34,11 +36,17 @@ public class EnemyAttack : MonoBehaviour
 
     [Tooltip("Emitted on attack")]
     [SerializeField]
-    private AudioClip attackSound;
+    private AudioClip   attackSound;
+
+    // Logic
+    
+    // Use for attack type
+    private Power power;
 
     private void Start()
     {
         cooldownCurrent = cooldownStart;
+        power = GetComponent<Power>();
     }
 
     private void Update()
@@ -61,14 +69,27 @@ public class EnemyAttack : MonoBehaviour
             PlayerAttack playerAttack = victim.GetComponent<PlayerAttack>();
 
             // Effects
-            // TODO
+            attackSounds.clip = attackSound;
+            attackSounds.Play();
 
             // Attack with our charge type
-            // TODO
+            if (power.charge == Charge.Positive)
+            {
+                playerAttack.RemainBullet[1] -= attackDamage;
+            }
+            else if (power.charge == Charge.Negative)
+            {
+                playerAttack.RemainBullet[0] -= attackDamage;
+            }
 
             // Cooldown
-            // TODO
+            cooldownCurrent = cooldownMax;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        AttackPlayerAttackTemp(collision.gameObject);
     }
 
     /// <summary>
