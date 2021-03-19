@@ -70,3 +70,8 @@
 - By [JavierZumer](https://freesound.org/people/JavierZumer/)
 - File Name `Negative.ogg`
 
+### [ Sonic Artefacts » 001.wav ](https://freesound.org/people/CosmicD/sounds/33482/)
+- Spawning
+- License [CC-BY-3.0](http://creativecommons.org/licenses/by-nc/3.0/)
+- By [CosmicD](https://freesound.org/people/CosmicD/)
+- File Name `Spawn.ogg`
