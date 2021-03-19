@@ -9,6 +9,8 @@ using UnityEngine;
 /// </summary>
 public class EnemyController : MonoBehaviour
 {
+    [Tooltip("What we chase after")]
+    [SerializeField]
     private GameObject target;
 
     private void Start()
